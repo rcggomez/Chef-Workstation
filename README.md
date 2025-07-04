@@ -54,7 +54,20 @@ service 'apache2' do
   action [:start, :enable]
 end
 ```
+### **3.3 Ejemplo de receta (`install_nginx.rb`)** 
+```ruby
+package 'nginx' do  
+  action :install
+end
 
+service 'nginx' do 
+  action [:start, :enable]
+end
+
+# Opcional: Eliminar archivo default de Nginx
+file '/etc/nginx/sites-enabled/default' do
+  action :delete
+end
 ---
 
 ## **🚀 Paso 4: Despliegue en Equipo**  
