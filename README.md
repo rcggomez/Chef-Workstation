@@ -1,3 +1,4 @@
+
 # **Manual: Implementación de Chef Workstation para Equipos**  
 
 ## **🔧 Paso 1: Instalaciones Iniciales (Todos)**  
@@ -54,13 +55,13 @@ service 'apache2' do
   action [:start, :enable]
 end
 ```
-### **3.3 Ejemplo de receta (`install_nginx.rb`)** 
+### **3.3 nginx (`install_nginx.rb`) **
 ```ruby
 package 'nginx' do  
   action :install
 end
 
-service 'nginx' do 
+service 'nginx' do  
   action [:start, :enable]
 end
 
@@ -68,6 +69,22 @@ end
 file '/etc/nginx/sites-enabled/default' do
   action :delete
 end
+```
+
+### **2. Para Otros Servidores**
+
+**Ejemplo con  _Lighttpd_:**
+```ruby
+
+package 'lighttpd' do
+  action :install
+end
+
+service 'lighttpd' do
+  action [:start, :enable]
+end
+```
+
 ---
 
 ## **🚀 Paso 4: Despliegue en Equipo**  
